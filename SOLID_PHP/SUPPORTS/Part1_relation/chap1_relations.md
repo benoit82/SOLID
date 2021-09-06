@@ -245,6 +245,33 @@ class Connector{
 }
 ```
 
+L'association peut également être en relation avec l'objet dans lequel elle s'exécute :
+
+```php
+class RaspberryPiBis{
+    
+    public function setConnector(Connector $c){
+        $c->set($this); 
+    }
+    
+    public function info(){
+        return "ARM 132425";
+    }
+
+}
+
+class Connector{
+
+    private $os;
+
+    public function set(RaspberryPiBis $raspberry){
+        // 
+        
+        $this->os = $raspberry->info();
+    }
+}
+```
+
 \newpage
 
 ## Agrégation
