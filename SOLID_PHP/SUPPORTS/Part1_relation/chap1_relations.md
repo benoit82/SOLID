@@ -544,4 +544,4 @@ echo $parking . "\n";
 
 5. Implémentez une méthode getAll dans la classe Parking. Cette méthode affichera le détail des mobiles qui sont garés dans un parking.
 
-6. Créez une dernière interface Navigable, elle imposera (implémentera) qu'un Ferry doit avoir une méthode addPark qui permet au Ferry d'avoir si nécessaire un objet de type Parking.
+
