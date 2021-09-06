@@ -1,0 +1,13 @@
+{
+    "name": "exo/park",
+    "authors": [
+        {
+            "name": "Exo",
+            "email": "exo.exo@mail.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4" : { "Park\\" : "src/"}
+    }
+}
