@@ -245,7 +245,7 @@ class Connector{
 }
 ```
 
-L'association peut également être en relation avec l'objet dans lequel elle s'exécute :
+L'association peut également être en relation avec l'objet dans lequel elle s'exécute, elle peut être bidirectionnelle.
 
 ```php
 class RaspberryPiBis{
