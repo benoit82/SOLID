@@ -542,6 +542,6 @@ echo $parking . "\n";
 
 ```
 
-5. Implémentez une méthode getAll dans la classe Parking. Cette méthode affichera le détail des mobiles qui sont garés dans un parking.
+5. Implémentez une méthode getAll ou __toString dans la classe Parking. Cette méthode affichera le détail des mobiles qui sont garés dans un parking.
 
 
