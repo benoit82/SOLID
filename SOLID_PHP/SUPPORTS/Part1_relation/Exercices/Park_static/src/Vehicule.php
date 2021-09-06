@@ -6,6 +6,9 @@ abstract class Vehicule {
     private string $name ;
     private string $engine ;
 
+    // On expose la variable $speed aux classes filles
+    protected static float $speed;
+
 
     public function __construct(string $name)
     {
@@ -14,7 +17,9 @@ abstract class Vehicule {
 
     // : float valeur de retour
     // Ici on on a deux méthodes qui ont la même signature, mais qui auront une implémentation différente ceci est liée aux spécifités de chacune des classes.
-    abstract public function speed():float;
+    abstract static public function speed():float;
+    abstract static public function setSpeed(float $speed):void;
+
     abstract public  function __toString():string; 
 
     /**
