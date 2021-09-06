@@ -540,7 +540,6 @@ $telsa =new Car('tesla');
 $parking->addPark($telsa);
 echo $parking . "\n";
 
-$ferry->addParking($parking);
 ```
 
 5. Implémentez une méthode getAll dans la classe Parking. Cette méthode affichera le détail des mobiles qui sont garés dans un parking.
