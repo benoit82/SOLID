@@ -27,7 +27,7 @@ extensions.*
 
 ## Exercice Single Responsability Lamp
 
-Soit une lampe qui peut s'alumer et s'éteindre... Déterminez deux responsabilités distinctes : Light (on/off) et Lamp et mettez les en relation.  
+Soit une lampe qui peut s'alumer et s'éteindre... Déterminez deux clases ayant des responsabilités distinctes : Light (on/off) et Lamp et mettez les en relation.  
 
 Dans cet exercice vous implémenterez une méthode **__toString** dans la classe Lamp pour connaître son état (on ou off). Voyez l'extrait de code ci-dessous :
 
