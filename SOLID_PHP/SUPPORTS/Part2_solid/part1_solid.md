@@ -39,6 +39,37 @@ $lamp->switch();
 echo $lamp; // On
 ```
 
+## Exercice Tools
+
+Voici une classe ayant trop de responsabilités. Refactorez ce code pour le rendre Single Responsability ...
+
+```php
+<?php
+
+class Tools
+{
+    private $format = 'd/m/y';
+    private $max = 10;
+
+    public function redirect($url)
+    {
+        header('Location: ' . $url);
+        exit;
+    }
+
+    public function date($date)
+    {
+        return new Date($date)->format($this->format);
+    }
+
+    public function token(){
+
+        return random_bytes($this->max);
+    }
+}
+
+```
+
 ## Exercice Open/Closed Shipping
 
 Principe Open/Closed. Ajoutez une nouvelle fonctionnalité ne doit pas casser les fonctionnalités existantes ... Vous pouvez par exemple, pour respecter ce principe, étendre une classe A par une classe B. La classe B étendue récupère les fonctionnalités de la classe A et peut ainsi ajouter d'autre(s) fonctionnalité(s) sans modifier le code de la classe B.
