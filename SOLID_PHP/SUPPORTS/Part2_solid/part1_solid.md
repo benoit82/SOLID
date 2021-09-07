@@ -177,7 +177,7 @@ Le principe de substitution de Liskov.
 
 ## Exercice Interface ségrégation
 
-Soit une classe Cart. On aimerait pouvoir ajouter dans cette classe des produits différents : Book, Music, Byke,... Sans avoir d'erreur. Implémentez une interface Productable et utilisez la comme type dans l'injection des produits dans la méthode buy.
+Soit une classe Cart. On aimerait pouvoir ajouter dans cette classe des produits différents : Book, Music, Bike,... Sans avoir d'erreur. Implémentez une interface Productable et utilisez la comme type dans l'injection des produits dans la méthode buy.
 
 Aidez-vous du diagramme de classe et du code ci-dessous :
 
@@ -341,4 +341,18 @@ $cart->restore($strawberry);
 echo "\n";
 echo $cart->total() ; // 151.2
 echo "\n";
+```
+
+
+## Rappels de code 
+
+
+```php
+class Product
+{
+    public function __construct(
+        private string $name, 
+        private float $price
+    ) {}
+}
 ```
