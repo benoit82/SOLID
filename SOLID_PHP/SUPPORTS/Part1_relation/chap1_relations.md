@@ -245,6 +245,33 @@ class Connector{
 }
 ```
 
+L'association peut également être en relation avec l'objet dans lequel elle s'exécute, elle peut être bidirectionnelle.
+
+```php
+class RaspberryPiBis{
+    
+    public function setConnector(Connector $c){
+        $c->set($this); 
+    }
+    
+    public function info(){
+        return "ARM 132425";
+    }
+
+}
+
+class Connector{
+
+    private $os;
+
+    public function set(RaspberryPiBis $raspberry){
+        // 
+        
+        $this->os = $raspberry->info();
+    }
+}
+```
+
 \newpage
 
 ## Agrégation
@@ -513,9 +540,8 @@ $telsa =new Car('tesla');
 $parking->addPark($telsa);
 echo $parking . "\n";
 
-$ferry->addParking($parking);
 ```
 
-5. Implémentez une méthode getAll dans la classe Parking. Cette méthode affichera le détail des mobiles qui sont garés dans un parking.
+5. Implémentez une méthode getAll ou __toString dans la classe Parking. Cette méthode affichera le détail des mobiles qui sont garés dans un parking.
 
-6. Créez une dernière interface Navigable, elle imposera (implémentera) qu'un Ferry doit avoir une méthode addPark qui permet au Ferry d'avoir si nécessaire un objet de type Parking.
+
