@@ -19,10 +19,10 @@ extensions.*
  *Si un objet A se réfère à un objet B, on doit pouvoir substituer B par une de ses classes filles (C par exemple), sans que A n'en soit impacté.*
 
 - Interface segregation
-*Un objet A ne doit par "consommer" directement un objet B, il doit consommer son interface.*
+*Un objet A ne doit par "consommer" directement un objet B, il doit consommer son interface.* Attention, lorsque vous définissez une interface, celle-ci doit-être également Single Responsability. Les méthodes définies dans une interface sont des fonctionnalités/responsabilités unique à implémenter dans la classe.
 
 - Dependency injection
-*Les objets ne doivent pas créer eux-mêmes les objets dont ils dépendent, on doit les injecter (on crée les instances à l'extérieur de la classe, puis on les "injectent". On ne fait pas de new dans une classe).*
+*Les objets ne doivent pas créer eux-mêmes les objets dont ils dépendent, on doit les injecter (on crée les instances à l'extérieur de la classe, puis on les "injectent". On ne fait pas de new dans une classe).* Ce principe est important un Container de Services prépare les futurs instances des classes que l'on pourra injecter dans les classes consommatrices de ces services.
 
 
 ## Exercice Single Responsability Lamp
@@ -349,6 +349,148 @@ echo $cart->total() ; // 151.2
 echo "\n";
 ```
 
+## Question 01 
+
+1. Que pensez-vous de la classe suivante ? Si celle-ci est non conforme proposer une solution.
+
+```php
+class User {
+  
+    public function __construct(private string $name, private int $age){
+
+    }
+    
+    // ...
+    
+    public function store() {
+        // Store attributes into a database...
+    }
+}
+```
+
+## Question 02
+
+Voici deux classes Géométriques
+
+```php
+class Rectangle {
+    public function __construct(
+        private float $w, 
+        private float $h
+    ) {}
+}
+
+class Square {
+  
+    public function __construct(private float $c) {
+    }
+}
+```
+
+Un étudiant propose la solution suivante pour calculer la somme des aires de chaque forme géométrique. Qu'est-ce que vous seriez tenter de lui dire si par exemple on introduit une nouvelle classe Circle dans le projet ?
+
+Proposez une solution pour résoudre ce problème et expliciter le terme SOLID utilisé.
+
+```php
+class Area {
+  
+    public function __construct(
+        private array $shapes = []
+    ) {}
+    
+    public function sum() {
+        foreach($this->shapes as $shape) {
+            if($shape instanceof Square) {
+                $area[] = ($shape->c)**2;
+            } else if($shape instanceof Rectangle) {
+                $area[] = $shape->w * $shape->h;
+            }
+        }
+    
+        return array_sum($area);
+    }
+}
+```
+
+## Question 03
+
+Que pensez-vous des substitutions de type dans les classes Shelter et SubShelter dans la méthode put ?
+
+```php
+interface Feline
+{
+}
+class Cat implements Feline
+{
+}
+class Kitten extends Cat
+{
+}
+
+interface Shelterable
+{
+    public function put(Cat $cat): void;
+}
+
+class Shelter implements Shelterable
+{
+    public function put(Cat $cat): void
+    {
+    }
+}
+
+class SubShelter implements Shelterable
+{
+    public function put(Kitten $cat): void
+    {
+    }
+}
+
+```
+
+## Exercice Form libre
+
+On vous demande de développer un composant **ComponentForm** très simple pour générer des formulaires à la voler. On souhaiterait avoir un champ de type number, password et text. 
+
+Faites un schéma pour expliciter votre projet avant de l'implémenter.
+
+## Remarques sur la conception SOLID
+
+```php
+
+class Cart{
+
+    /*
+    * La signature SessionStorage ne permet pas la modularité vous devez utiliser un type Storable plus modulable
+    */
+    public function __construct(SessionStorage $storage){
+        $this->storage = $storage;
+    }
+
+// ...
+
+    public function (Productable $p, int $q){
+
+// ...
+//      On attribut trop de responsabilité à la classe Cart PENSEZ SINGLE RESPONSABILITY toujours ! Ce n'est pas de la responsabilité de la classe Cart de s'occuper du storage
+      //  $this->storage[$p->getName()] += $p->getPrice() * $q ;
+
+        $this->storage->setValue($p->getName(), $p->getPrice() * $q);
+    }
+}
+
+
+// Ne pas faire ce qui suit !!!! Ce n'est pas modulable travailler avec des interfaces ! Pour éviter 
+
+class CartSession {
+
+}
+
+class CartDB {
+    
+}
+
+```
 
 ## Rappels de code 
 
@@ -361,41 +503,4 @@ class Product
         private float $price
     ) {}
 }
-```
-
-
-
-Remarques 
-
-```php
-
-class Cart{
-
-    public function __construct(SessionStorage $storage){
-        $this->storage = $storage;
-    }
-
-// ...
-
-    public function (Productable $p, int $q){
-
-// ...
-// On attribut trop de responsabilité à la classe Cart PENSEZ SINGLE RESPONSABILITY toujours !
-        $this->storage[$p->getName()] += $p->getPrice() * $q ;
-
-        $this->storage->setValue($p->getName(), $p->getPrice() * $q);
-    }
-}
-
-
-// Ne pas faire ce qui suit !!!! Ce n'est pas modulable travailler avec des interfaces !
-
-class CartSession {
-
-}
-
-class CartDB {
-    
-}
-
 ```
