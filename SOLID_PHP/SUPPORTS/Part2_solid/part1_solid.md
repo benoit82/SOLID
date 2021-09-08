@@ -320,8 +320,14 @@ $products = [
     'orange' => new Product('orange', 7.5),
 ];
 
-$storageSession =  new StorageArray;
-$cart = new Cart($storageSession);
+$storageSession =  new StorageSession; // persistance en Session
+$storageArray =  new storageArray; // utilisation pour les tests
+$storageDB =  new StorageDB; // persistance en DB
+$storageFile =  new StorageFile; // persistance dans un fichier
+
+// $cart = new Cart($storageSession);
+
+$cart = new Cart($storageArray);
 
 extract($products);
 
@@ -355,4 +361,41 @@ class Product
         private float $price
     ) {}
 }
+```
+
+
+
+Remarques 
+
+```php
+
+class Cart{
+
+    public function __construct(SessionStorage $storage){
+        $this->storage = $storage;
+    }
+
+// ...
+
+    public function (Productable $p, int $q){
+
+// ...
+// On attribut trop de responsabilité à la classe Cart PENSEZ SINGLE RESPONSABILITY toujours !
+        $this->storage[$p->getName()] += $p->getPrice() * $q ;
+
+        $this->storage->setValue($p->getName(), $p->getPrice() * $q);
+    }
+}
+
+
+// Ne pas faire ce qui suit !!!! Ce n'est pas modulable travailler avec des interfaces !
+
+class CartSession {
+
+}
+
+class CartDB {
+    
+}
+
 ```
