@@ -574,11 +574,28 @@ C'est le principe de Liskov.
 
 On a cassé le code de l'application. 
 
-## Exercice Form libre
+## Exercice Form création de formulaire à la volée
 
-On vous demande de développer un composant **ComponentForm** très simple pour générer des formulaires à la voler. On souhaiterait avoir un champ de type number, password et text. 
+On vous demande de développer un composant **ComponentForm** très simple pour générer des formulaires à la volée. On souhaiterait avoir un champ de type number, password et text. 
 
 Faites un schéma pour expliciter votre projet avant de l'implémenter.
+
+```bash
+
+php -S localhost:8000 app.php
+
+```
+
+On affichera le formulaire :
+
+```txt
+FirsName : []
+LastName : []
+age : []
+password : []
+
+[Valider]
+```
 
 ## Remarques sur la conception SOLID
 
