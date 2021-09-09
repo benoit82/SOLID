@@ -18,12 +18,17 @@ extensions.*
 - Liskov substitution
  *Si un objet A se réfère à un objet B, on doit pouvoir substituer B par une de ses classes filles (C par exemple), sans que A n'en soit impacté.*
 
+**Vous pouvez également appliquer la règle suivante. Si vous remplacez une classe parente par une classe enfante alors le comportement générale de votre code ne devrait pas en être impactée.**
+
 - Interface segregation
-*Un objet A ne doit par "consommer" directement un objet B, il doit consommer son interface.* Attention, lorsque vous définissez une interface, celle-ci doit-être également Single Responsability. Les méthodes définies dans une interface sont des fonctionnalités/responsabilités unique à implémenter dans la classe.
+*Un objet A ne doit par "consommer" directement un objet B, il doit consommer son interface.* 
+
+Attention, lorsque vous définissez une interface, celle-ci doit-être également Single Responsability. Les méthodes définies dans une interface sont des fonctionnalités/responsabilités unique à implémenter dans la classe. Une interface a donc des responsabilités limités et uniques et bornés.
 
 - Dependency injection
-*Les objets ne doivent pas créer eux-mêmes les objets dont ils dépendent, on doit les injecter (on crée les instances à l'extérieur de la classe, puis on les "injectent". On ne fait pas de new dans une classe).* Ce principe est important un Container de Services prépare les futurs instances des classes que l'on pourra injecter dans les classes consommatrices de ces services.
+*Les objets ne doivent pas créer eux-mêmes les objets dont ils dépendent, on doit les injecter (on crée les instances à l'extérieur de la classe, puis on les "injectent". On ne fait pas de new dans une classe).* 
 
+Ce principe d'inversion est important, un Container de Services prépare les futurs instances des classes que l'on pourra injecter dans les classes consommatrices de ces services, qui sont "injectés" dans une/des méthode(s) de la classe.  
 
 ## Exercice Single Responsability Lamp
 
@@ -164,7 +169,9 @@ Répondez aux questions suivantes :
 1. La classe Book est-elle conforme au principe SOLID ?
 
 Non car **elle brise le principe de Liskov**. Le problème : la méthode priceTTC surchargée possède un paramètre supplémentaire obligatoire. 
-Vous pouvez surcharer une méthode dans une classe fille, mais vous devez avoir le même nombre de paramètre que la méthode définie dans la classe mère. Vous pouvez cependant ajouter à cette méthode surchargée un paramètre/des paramètres faculatif(s), cela ne brise pas le principe de Liskov.
+Vous pouvez surcharer une méthode dans une classe fille, mais vous devez avoir le même nombre de paramètre(s) que la méthode définie dans la classe mère ainsi que les même types.
+
+Vous pouvez cependant ajouter à cette méthode surchargée un paramètre/des paramètres faculatif(s), cela ne brise pas le principe de Liskov.
 (voir l'exemple dans le dossier Liskov dans le dossier  Examples du cours)
 
 2. Que se passe-t-il si on ajoute des Book à la classe Cart et que l'on calcule le total des prix TTC ?
@@ -351,7 +358,7 @@ echo "\n";
 
 ## Question 01 
 
-1. Que pensez-vous de la classe suivante ? Si celle-ci est non conforme proposer une solution.
+1. Que pensez-vous de la classe suivante ? Si celle-ci est non conforme proposer une solution de refactorisation du code.
 
 ```php
 class User {
@@ -387,7 +394,7 @@ class Square {
 }
 ```
 
-Un étudiant propose la solution suivante pour calculer la somme des aires de chaque forme géométrique. Qu'est-ce que vous seriez tenter de lui dire si par exemple on introduit une nouvelle classe Circle dans le projet ?
+Un étudiant propose la solution suivante pour calculer la somme des aires de chaque forme géométrique. Qu'est-ce que vous seriez tenté de lui dire si par exemple on introduit une nouvelle classe Circle dans le projet ?
 
 Proposez une solution pour résoudre ce problème et expliciter le terme SOLID utilisé.
 
@@ -414,38 +421,55 @@ class Area {
 
 ## Question 03
 
-Que pensez-vous des substitutions de type dans les classes Shelter et SubShelter dans la méthode put ?
+1. Que pensez-vous de la substitution, ci-dessous, est-elle sans risque, Nous remplaçons une classe parente par une classe enfante ? Quel principe à votre avis avons nous brisé ?
+
+2. Le principe suivant vous paraît-il cohérent, si oui, à quelle notion dans SOLID fait-il référence ? 
+
+Si vous remplacez une classe parente par une classe enfante, alors le comportement générale de votre code ne devrait pas en être impactée.
+
+3. Dans l'exemple Book et Product dans le cours, nous avons remplacer une classe parente Product par une classe enfante Book. Quel problème avons-nous alors rencontré ?
 
 ```php
-interface Feline
+class Feline
 {
-}
-class Cat implements Feline
-{
-}
-class Kitten extends Cat
-{
-}
+    public function speak():string{
 
-interface Shelterable
-{
-    public function put(Cat $cat): void;
+        return "grrr";
+    }
 }
-
-class Shelter implements Shelterable
+class Cat extends Feline
 {
-    public function put(Cat $cat): void
-    {
+    public $behviour;
+
+    public function sleep():string{
+
+        return "a lot";
+    }
+
+    public function speak():void{
+
+        $this->behviour = "grrr";
     }
 }
 
-class SubShelter implements Shelterable
+class CatInfo 
 {
-    public function put(Kitten $cat): void
+
+    public function info(Feline $cat)
     {
+
+        return $cat->speak();
     }
 }
 
+class SubCatInfo 
+{
+
+    public function info(Cat $cat)
+    {
+        return $cat->speak();
+    }
+}
 ```
 
 ## Exercice Form libre
