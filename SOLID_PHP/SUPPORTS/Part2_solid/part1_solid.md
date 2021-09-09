@@ -375,6 +375,28 @@ class User {
 }
 ```
 
+La classe User a trop de responsabilité, le store doit se trouver dans une classe de type **Repository** (traitement base de données).
+
+```php
+class User {
+  
+    public function __construct(private string $name, private int $age){
+
+    }
+}
+
+// Repository pour traiter les données en BD.
+class UserRepository
+{
+
+    public function store(User $user)
+    {
+        // Store the user into a database...
+    }
+}
+
+```
+
 ## Question 02
 
 Voici deux classes Géométriques :
@@ -419,12 +441,85 @@ class Area {
 }
 ```
 
+Elle n'est pas ouverte à l'extension du code. On est clairement obligé de casser le code pour la faire évoluer ... Le principe Open/closed est à rappeler à l'étudiant ...
+
+```php
+
+interface Calculable
+{
+    const PI = 3.14;
+    const PRECISION_DECIMAL = 2;
+
+    public function area():float;
+}
+
+class Rectangle implements Calculable
+{
+    public function __construct(
+        private float $w,
+        private float $h
+    ) {
+    }
+
+    public function area():float
+    {
+        return round ( $this->w * $this->h, self::PRECISION_DECIMAL) ;
+    }
+}
+
+class Square implements Calculable
+{
+
+    public function __construct(private float $c)
+    {
+    }
+
+    public function area():float
+    {
+        return round (  ($this->c) ** 2, self::PRECISION_DECIMAL) ;
+    }
+}
+
+class Circle implements Calculable
+{
+
+    
+    public function __construct(private float $r)
+    {
+    }
+
+    public function area():float
+    {
+        return round( self::PI * ($this->r) ** 2, PRECISION_DECIMAL);
+    }
+}
+
+class Area
+{
+    const PRECISION_DECIMAL = 2;
+
+    public function __construct(
+        private array $shapes = []
+    ) {
+    }
+
+    public function sum()
+    {
+
+        foreach ($this->shapes as $shape) $area[] = $shape->area();
+
+        return round( array_sum($this->shapes), PRECISION_DECIMAL) ;
+    }
+}
+```
+
 ## Question 03
 
 1. Que pensez-vous de la substitution ci-dessous, est-elle sans risque ? Nous remplaçons une classe parente par une classe enfante. Quel principe à votre avis avons nous brisé ?
 
 
 ```php
+
 class Feline
 {
     public function speak():string{
@@ -432,6 +527,7 @@ class Feline
         return "grrr";
     }
 }
+
 class Cat extends Feline
 {
     public $behviour;
@@ -441,6 +537,7 @@ class Cat extends Feline
         return "a lot";
     }
 
+    // ICI on brise le principe de Liskov en changent la signature de la méthode speak
     public function speak():void{
 
         $this->behviour = "grrr";
@@ -469,9 +566,13 @@ class SubCatInfo
 
 2. Le principe suivant vous paraît-il cohérent, si oui, à quelle notion dans SOLID fait-il référence ? 
 
-Principe : "Si vous remplacez une classe parente par une classe enfante, alors le comportement générale de votre code ne devrait pas en être impactée".
+Principe : "Si vous remplacez une classe parente par une classe enfante, alors le comportement générale de votre code ne devrait pas en être impactée."
+
+C'est le principe de Liskov.
 
 3. Dans l'exercice Book et Product dans le cours, nous avons remplacer une classe parente Product par une classe enfante Book. Quel problème avons-nous alors rencontré ?
+
+On a cassé le code de l'application. 
 
 ## Exercice Form libre
 
