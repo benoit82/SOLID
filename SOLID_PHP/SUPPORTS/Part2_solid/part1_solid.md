@@ -358,7 +358,7 @@ echo "\n";
 
 ## Question 01 
 
-1. Que pensez-vous de la classe suivante ? Si celle-ci est non conforme proposer une solution de refactorisation du code.
+1. Que pensez-vous de la classe suivante ? Si celle-ci est non conforme proposer une solution de refactorisation du code (coder la solution dans un fichier).
 
 ```php
 class User {
@@ -377,7 +377,7 @@ class User {
 
 ## Question 02
 
-Voici deux classes Géométriques
+Voici deux classes Géométriques :
 
 ```php
 class Rectangle {
@@ -396,7 +396,7 @@ class Square {
 
 Un étudiant propose la solution suivante pour calculer la somme des aires de chaque forme géométrique. Qu'est-ce que vous seriez tenté de lui dire si par exemple on introduit une nouvelle classe Circle dans le projet ?
 
-Proposez une solution pour résoudre ce problème et expliciter le terme SOLID utilisé.
+Proposez une solution (coder là dans un fichier) pour résoudre ce problème et expliciter le terme SOLID utilisé.
 
 ```php
 class Area {
@@ -421,13 +421,8 @@ class Area {
 
 ## Question 03
 
-1. Que pensez-vous de la substitution, ci-dessous, est-elle sans risque, Nous remplaçons une classe parente par une classe enfante ? Quel principe à votre avis avons nous brisé ?
+1. Que pensez-vous de la substitution ci-dessous, est-elle sans risque ? Nous remplaçons une classe parente par une classe enfante. Quel principe à votre avis avons nous brisé ?
 
-2. Le principe suivant vous paraît-il cohérent, si oui, à quelle notion dans SOLID fait-il référence ? 
-
-Si vous remplacez une classe parente par une classe enfante, alors le comportement générale de votre code ne devrait pas en être impactée.
-
-3. Dans l'exemple Book et Product dans le cours, nous avons remplacer une classe parente Product par une classe enfante Book. Quel problème avons-nous alors rencontré ?
 
 ```php
 class Feline
@@ -471,6 +466,12 @@ class SubCatInfo
     }
 }
 ```
+
+2. Le principe suivant vous paraît-il cohérent, si oui, à quelle notion dans SOLID fait-il référence ? 
+
+Principe : "Si vous remplacez une classe parente par une classe enfante, alors le comportement générale de votre code ne devrait pas en être impactée".
+
+3. Dans l'exercice Book et Product dans le cours, nous avons remplacer une classe parente Product par une classe enfante Book. Quel problème avons-nous alors rencontré ?
 
 ## Exercice Form libre
 
