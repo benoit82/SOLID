@@ -6,22 +6,22 @@
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] Oui 
+[ ] Oui 
 
-[] Non
+[ ] Non
 
 2. Combien de responsabilité pouvons-nous définir à partir de la classe "spaghetti" ci-après ? 
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
 
-[] 1
+[ ] 1
 
-[] 2
+[ ] 2
 
-[] 3
+[ ] 3
 
-[] 0
+[ ] 0
 
 ```php
 
@@ -50,15 +50,15 @@ A quelle lettre le principe suivant correspont-il ?
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
 
-[] S
+[ ] S
 
-[] O
+[ ] O
 
-[] L
+[ ] L
 
-[] I
+[ ] I
 
-[] D
+[ ] D
 
 
 ## Question 03
@@ -69,15 +69,15 @@ A quelle lettre le principe suivant correspont-il ?
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] S
+[ ] S
 
-[] O
+[ ] O
 
-[] L
+[ ] L
 
-[] I
+[ ] I
 
-[] D
+[ ] D
 
 ## Question 04
 
@@ -87,15 +87,15 @@ A quelle lettre le principe suivant correspont-il ?
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] S
+[ ] S
 
-[] O
+[ ] O
 
-[] L
+[ ] L
 
-[] I
+[ ] I
 
-[] D
+[ ] D
 
 ## Question 05
 
@@ -105,15 +105,15 @@ A quelle lettre le principe suivant correspont-il ?
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] S
+[ ] S
 
-[] O
+[ ] O
 
-[] L
+[ ] L
 
-[] I
+[ ] I
 
-[] D
+[ ] D
 
 
 ## Question 06
@@ -124,15 +124,15 @@ A quelle lettre le principe suivant correspont-il ?
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] S
+[ ] S
 
-[] O
+[ ] O
 
-[] L
+[ ] L
 
-[] I
+[ ] I
 
-[] D
+[ ] D
 
 ## Question 07
 
@@ -184,6 +184,10 @@ class Cart
 }
 ```
 
+[ ] Oui
+
+[ ] Non
+
 ## Question 08
 
 Dans la classe suivante StorageSession est une classe concrète, que doit-on faire pour la rendre modulable ?
@@ -201,13 +205,13 @@ class Cart{
 
 ```
 
-[] Rien elle est modulable.
+[ ] Rien elle est modulable.
 
-[] On doit définir un contrat que la classe Cart doit implémenter.
+[ ] On doit définir un contrat que la classe Cart doit implémenter.
 
-[] On doit définir un contrat que la classe StorageSession doit implémenter.
+[ ] On doit définir un contrat que la classe StorageSession doit implémenter.
 
-[] On doit définir un contrat pour la classe StorageSession et l'utiliser comme type pour la variable storage.
+[ ] On doit définir un contrat pour la classe StorageSession et l'utiliser comme type pour la variable storage.
 
 ## Question 09
 
@@ -215,13 +219,13 @@ L'héritage définit quel degré de relation entre deux classes A parente et B e
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] Une relation très faible entre la classe A et la classe B.
+[ ] Une relation très faible entre la classe A et la classe B.
 
-[] Une relation très faible entre la classe B et la classe A.
+[ ] Une relation très faible entre la classe B et la classe A.
 
-[] La classe B est fortement liée à la classe A.
+[ ] La classe B est fortement liée à la classe A.
 
-[] La classe A est fortement liée à la classe B.
+[ ] La classe A est fortement liée à la classe B.
 
 ## Question 10
 
@@ -229,13 +233,13 @@ Qu'impose le mot clé final dans l'héritage ?
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] Il termine l'arbre d'héritage, sans possibilité de continuer l'héritage.
+[ ] Il termine l'arbre d'héritage, sans possibilité de continuer l'héritage.
 
-[] Il termine l'arbre d'héritage, avec la possibilité de continuer l'héritage.
+[ ] Il termine l'arbre d'héritage, avec la possibilité de continuer l'héritage.
 
-[] Il commence l'arbre d'héritage, avec la possiblité de continuer l'héritage.
+[ ] Il commence l'arbre d'héritage, avec la possiblité de continuer l'héritage.
 
-[] Il commence l'arbre d'héritage, sans la possiblité de continuer l'héritage.
+[ ] Il commence l'arbre d'héritage, sans la possiblité de continuer l'héritage.
 
 ## Question 11
 
@@ -243,11 +247,11 @@ Quel est le symbole pour exprimer la visibilité **private**.
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] -
+[ ] -
 
-[] +
+[ ] +
 
-[] #
+[ ] #
 
 ## Question 12
 
@@ -255,11 +259,11 @@ Quel est le symbole pour exprimer la visibilité **public**.
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] -
+[ ] -
 
-[] +
+[ ] +
 
-[] #
+[ ] #
 
 ## Question 13
 
@@ -267,11 +271,11 @@ Quel est le symbole pour exprimer la visibilité **protected**.
 
 Répondez en choisissant une seule et bonne réponse ci-dessous.
 
-[] -
+[ ] -
 
-[] +
+[ ] +
 
-[] #
+[ ] #
 
 ## Question 14
 
@@ -298,13 +302,13 @@ class Log{
 ```
 
 
-[] Agrégation
+[ ] Agrégation
 
-[] Composition
+[ ] Composition
 
-[] Association ponctuelle
+[ ] Association ponctuelle
 
-[] Association permanente
+[ ] Association permanente
 
 
 ## Question 15
@@ -332,13 +336,13 @@ class Connector{
 ```
 
 
-[] Agrégation
+[ ] Agrégation
 
-[] Composition
+[ ] Composition
 
-[] Association ponctuelle
+[ ] Association ponctuelle
 
-[] Association permanente
+[ ] Association permanente
 
 
 ## Question 16
@@ -368,13 +372,13 @@ class Sd{
 
 ```
 
-[] Agrégation
+[ ] Agrégation
 
-[] Composition
+[ ] Composition
 
-[] Association ponctuelle
+[ ] Association ponctuelle
 
-[] Association permanente
+[ ] Association permanente
 
 
 ## Question 17
@@ -397,13 +401,13 @@ class Arm{
 }
 ```
 
-[] Agrégation
+[ ] Agrégation
 
-[] Composition
+[ ] Composition
 
-[] Association ponctuelle
+[ ] Association ponctuelle
 
-[] Association permanente
+[ ] Association permanente
 
 ## Question 18
 
@@ -420,9 +424,9 @@ class A{
 }
 ```
 
-[] Oui.
+[ ] Oui.
 
-[] Non.
+[ ] Non.
 
 ## Question 19
 
@@ -439,9 +443,9 @@ abstract class Model{
 }
 ```
 
-[] Oui.
+[ ] Oui.
 
-[] Non.
+[ ] Non.
 
 ## Question 20
 
@@ -464,11 +468,11 @@ class Post extends Model{
 $post = new Post;
 ```
 
-[] NULL
+[ ] NULL
 
-[] Anonymous
+[ ] Anonymous
 
-[] POST
+[ ] POST
 
-[] Une exception PHP de type InvalidArgument
+[ ] Une exception PHP de type InvalidArgument
 
