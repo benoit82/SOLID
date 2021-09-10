@@ -23,7 +23,9 @@ extensions.*
 - Interface segregation
 *Un objet A ne doit par "consommer" directement un objet B, il doit consommer son interface.* 
 
-Attention, lorsque vous définissez une interface, celle-ci doit-être également Single Responsability. Les méthodes définies dans une interface sont des fonctionnalités/responsabilités unique à implémenter dans la classe. Une interface a donc des responsabilités limités et uniques et bornés.
+Attention, lorsque vous définissez une interface, celle-ci doit-être également **Single Responsability**. Les méthodes définies dans une interface sont des fonctionnalités/responsabilités unique à implémenter dans la classe. Une interface a donc des responsabilités limités et uniques et bornés.
+
+*L'objectif de l'interface segrégation est de maintenir un Couplage faible entre les classes.*
 
 - Dependency injection
 *Les objets ne doivent pas créer eux-mêmes les objets dont ils dépendent, on doit les injecter (on crée les instances à l'extérieur de la classe, puis on les "injectent". On ne fait pas de new dans une classe).* 

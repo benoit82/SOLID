@@ -7,13 +7,13 @@ Dependancy Injection, rappelons le principe :
 
 Techniquement nous pourrions préparer dans le script courant les instances dont nos classes ont besoin, puis appliquer ce principe et injecter nos dépendances classiquement.
 
-Cependant, il est plus intéressant de passer par un Container Services. En effet, ce dernier plus qu'une simple "Factory" vous permettra de préparer et ces instances en les configurants pour votre application.
+Cependant, il est plus intéressant de passer par un Container Services. En effet, ce dernier plus qu'une simple "Factory" vous permettra de préparer ces instances en les configurants pour votre application.
 
-Pour découvrir ce principe d'inversion de contrôle, où nous allons chercher les dépendances que lorsque nous en avons besoin, nous allons implémenter un DI.
+Pour découvrir ce principe d'inversion de contrôle nous allons chercher les dépendances que lorsque nous en avons besoin.
 
 ## 01 Exercice DI
 
-En fonction du code suivant essayer d'implémenter un DI.
+En fonction du code suivant essayer d'implémenter un DI (Dependancy Injection)
 
 ```php
 class Container implements \ArrayAccess
@@ -50,7 +50,7 @@ class Container implements \ArrayAccess
     public function offsetExists($id)
     {
         
-
+    }
     /**
      * @param mixed $id
      */
@@ -59,3 +59,4 @@ class Container implements \ArrayAccess
       
     }
 }
+```
